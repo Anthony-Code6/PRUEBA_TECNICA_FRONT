@@ -1,0 +1,143 @@
+/* app.component.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #555;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.form-inline input,
+.form-inline select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-inline button {
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.form-inline button:hover {
+  background: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+table th {
+  background: #eee;
+  font-weight: bold;
+}
+
+table button {
+  padding: 4px 8px;
+  margin-right: 4px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+table button:hover {
+  background: #218838;
+}
+
+table button:last-child {
+  background: #dc3545;
+}
+
+table button:last-child:hover {
+  background: #c82333;
+}
+
+.totales {
+  margin-top: 16px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.totales p {
+  margin: 4px 0;
+  font-size: 16px;
+}
+
+.acciones {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.acciones button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+}
+
+.acciones button:first-child {
+  background: #28a745;
+}
+
+.acciones button:first-child:hover {
+  background: #218838;
+}
+
+.acciones button:last-child {
+  background: #dc3545;
+}
+
+.acciones button:last-child:hover {
+  background: #c82333;
+}

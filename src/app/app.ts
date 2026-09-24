@@ -15,6 +15,7 @@ import {
   OrderResponse,
   ProductResponse,
 } from './interface/response.interface';
+import { ResponseServer } from './interface/response_server';
 
 @Component({
   selector: 'app-root',
@@ -78,23 +79,21 @@ export class App implements OnInit {
   // INIT
   // =========================================================
 
-  ngOnInit(): void {
-    this.cargarClientes();
-
-    this.cargarProductos();
-
-    this.cargarPedidos();
+  async ngOnInit() {
+    await Promise.all([this.cargarClientes(), this.cargarProductos(), this.cargarPedidos()]);
   }
 
   // =========================================================
   // CLIENTES
   // =========================================================
 
-  cargarClientes(): void {
+  async cargarClientes() {
     this.cargandoClientes = true;
 
-    this.server.CustomefindAll().subscribe({
-      next: (response) => {
+    await this.server.CustomefindAll().subscribe({
+      next: (response: ResponseServer<CustomerResponse[]>) => {
+        console.log(response);
+
         if (response.status) {
           this.clientes = response.data ?? [];
         } else {
@@ -159,11 +158,13 @@ export class App implements OnInit {
   // PRODUCTOS
   // =========================================================
 
-  cargarProductos(): void {
+  async cargarProductos() {
     this.cargandoProductos = true;
 
-    this.server.ProductfindAll().subscribe({
-      next: (response) => {
+    await this.server.ProductfindAll().subscribe({
+      next: (response: ResponseServer<ProductResponse[]>) => {
+        console.log(response);
+
         if (response.status) {
           this.productos = response.data ?? [];
         } else {
@@ -240,13 +241,15 @@ export class App implements OnInit {
   // PEDIDOS
   // =========================================================
 
-  cargarPedidos(): void {
+  async cargarPedidos() {
     this.cargandoPedidos = true;
 
     const request: OrderListRequest = {};
 
-    this.server.OrderfindAll(request).subscribe({
-      next: (response) => {
+    await this.server.OrderfindAll(request).subscribe({
+      next: (response: ResponseServer<OrderListResponse[]>) => {
+        console.log(response);
+
         if (response.status) {
           this.pedidos = response.data ?? [];
         } else {
@@ -273,7 +276,7 @@ export class App implements OnInit {
     }
 
     const request: CreateOrderRequest = {
-      cliente_id: this.pedidoClienteId,
+      cliente_id: Number(this.pedidoClienteId),
       descuento_porcentaje: this.pedidoDescuento ?? 0,
     };
 
@@ -362,7 +365,7 @@ export class App implements OnInit {
     }
 
     const request: AddOrderItemRequest = {
-      producto_id: this.detalleProductoId,
+      producto_id: Number(this.detalleProductoId),
       cantidad: this.detalleCantidad,
     };
 

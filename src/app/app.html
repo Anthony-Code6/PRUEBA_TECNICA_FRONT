@@ -15,7 +15,6 @@
     <!-- FORMULARIO -->
     <form class="form-inline" (submit)="$event.preventDefault(); crearCliente()">
       <input type="text" placeholder="Nombre" [(ngModel)]="clienteNombre" name="clienteNombre" />
-
       <input
         type="text"
         placeholder="Documento"
@@ -548,7 +547,6 @@
           @if (pedidoSeleccionado.estado === 'COMPLETADO') {
             <span class="message-success"> El pedido ha sido completado. </span>
           }
-
           @if (pedidoSeleccionado.estado === 'CANCELADO') {
             <span class="message-danger"> El pedido ha sido cancelado. </span>
           }
